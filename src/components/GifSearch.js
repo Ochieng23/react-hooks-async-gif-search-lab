@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
-function GifSearch () {
+function GifSearch ({search,setSearch}) {
+    
+    const handleSearch = (event) => {
+        setSearch(event.target.value)
+        }
+        
 
-    return (null)
+
+    return (
+        <>    
+      <input type="text" 
+          placeholder="Search"
+          value={search}
+          onChange ={handleSearch}
+          className= 'mb-3 mx-2'
+          />
+        
+      </>
+
+    )
 }
 
 export default GifSearch

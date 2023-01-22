@@ -1,11 +1,14 @@
 import React from "react";
 
 // GifList component displays a list of gifs
-function GifList({ giphy }) {
+function GifList({ giphy,search }) {
   return (
     <>
     <ul>
-      {giphy.map((giph) => {
+      {giphy
+      .filter(giph => search === "" || giph.title.toLowerCase().includes(search.toLowerCase()))
+      
+      .map((giph) => {
         const { id, title, images } = giph;
         return (
             <>

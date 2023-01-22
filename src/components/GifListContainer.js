@@ -6,6 +6,7 @@ function GifListContainer() {
     const [giphy, setGiphy] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(3);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         fetch(`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=WNYTTBYgPMnCwU5juwWi3oXPCdGRVrXJ`)
@@ -23,8 +24,11 @@ function GifListContainer() {
     return (
         <>
             <div className="row" >
+
                 
-                {currentGifs.map((gif) => (
+                {currentGifs
+
+                .map((gif) => (
                     <>
                     
                     <div className="col">
@@ -39,8 +43,9 @@ function GifListContainer() {
                 ))}
                 
             </div>
-            <GifList giphy={giphy}/>
-            <GifSearch />
+            <GifSearch search={search} setSearch={setSearch}/>
+            <GifList giphy={giphy} search={search}/>
+          
         </>
     );
 }
