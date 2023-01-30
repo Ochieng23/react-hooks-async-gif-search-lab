@@ -23,7 +23,7 @@ function GifListContainer() {
 
     return (
         <>
-            <div className="row" >
+            <div className=""  style={{ display: "flex", flexDirection: "row" }} >
 
                 
                 {currentGifs
@@ -31,11 +31,12 @@ function GifListContainer() {
                 .map((gif) => (
                     <>
                     
-                    <div className="col">
-                    <img  key={gif.id} src={gif.images.original.url} alt={gif.title} />
+                    <div className="card">
+                    <img className="card-img-top"  key={gif.id} src={gif.images.original.url} alt={gif.title} />
                     
-                    
-                    <h1 >Pagination is a beautiful thing</h1>
+                    <div className="card-body">
+                    <p className="card-text" >Pagination is a beautiful thing</p>
+                    </div>
                     </div>
                     
                     
@@ -43,9 +44,10 @@ function GifListContainer() {
                 ))}
                 
             </div>
-            <GifSearch search={search} setSearch={setSearch}/>
+            <GifSearch search={search} setSearch={setSearch} />
+            <div className="row"  style={{ display: "flex", flexDirection: "row" }}>
             <GifList giphy={giphy} search={search}/>
-          
+            </div>
         </>
     );
 }

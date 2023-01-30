@@ -11,10 +11,11 @@ function GifSearch ({search,setSearch}) {
     return (
         <>    
       <input type="text" 
-          placeholder="Search"
+          placeholder="Search Gif"
           value={search}
           onChange ={handleSearch}
-          className= 'mb-3 mx-2'
+          className= 'mb-3 mx-2 mb-5'
+          style={{width:'660px'}}
           />
         
       </>

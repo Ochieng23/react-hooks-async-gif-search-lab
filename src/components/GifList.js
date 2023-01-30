@@ -4,7 +4,8 @@ import React from "react";
 function GifList({ giphy,search }) {
   return (
     <>
-    <ul>
+    <div  className="col bg-danger">
+    <ul style={{listStyle:'none', display:'flex', flexDirection:'column'}}>
       {giphy
       .filter(giph => search === "" || giph.title.toLowerCase().includes(search.toLowerCase()))
       
@@ -12,17 +13,21 @@ function GifList({ giphy,search }) {
         const { id, title, images } = giph;
         return (
             <>
-            <div className=" row d-flex flex-row">
-            <div className="col">
+            
+            <div className="card mt-4"  >
             <li key={id}>
-            <img src={images.original.url} alt={title} title={title} />
+            <img className="card-img-top" src={images.original.url} alt={title} title={title} />
+            <div className="card-body">
+             <p className="card-text">reps kadhaa</p>
+            </div>
             </li>
             </div>
-            </div>
+            
            </>
         );
       })}
       </ul>
+      </div>
     </>
   );
 }
